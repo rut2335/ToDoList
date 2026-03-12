@@ -1,924 +1,504 @@
-html,
-body {
-    margin: 0;
-    padding: 0;
-}
+/* ============================================
+   HIGH-END PROFESSIONAL DESIGN - Modern Productivity App
+   ============================================ */
 
-button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    font-size: 100%;
-    vertical-align: baseline;
-    font-family: inherit;
-    color: inherit;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-}
-
-body {
-    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.4em;
-    background: #eaeaea url('bg.png');
-    color: #4d4d4d;
-    width: 550px;
-    margin: 0 auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    -ms-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-}
-
-button,
-input[type="checkbox"] {
-    outline: none;
-}
-
-#todoapp {
-    background: #fff;
-    background: rgba(255, 255, 255, 0.9);
-    margin: 130px 0 40px 0;
-    border: 1px solid #ccc;
-    position: relative;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
-}
-
-    #todoapp:before {
-        content: '';
-        border-left: 1px solid #194350;
-        border-right: 1px solid #194350;
-        width: 2px;
-        position: absolute;
-        top: 0;
-        left: 40px;
-        height: 100%;
-    }
-
-    #todoapp input::-webkit-input-placeholder {
-        font-style: italic;
-    }
-
-    #todoapp input::-moz-placeholder {
-        font-style: italic;
-        color: #a9a9a9;
-    }
-
-    #todoapp h1 {
-        position: absolute;
-        top: -120px;
-        width: 100%;
-        font-size: 70px;
-        font-weight: bold;
-        text-align: center;
-        color: #b3b3b3;
-        color: rgba(255, 255, 255, 0.3);
-        text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
-        -webkit-text-rendering: optimizeLegibility;
-        -moz-text-rendering: optimizeLegibility;
-        -ms-text-rendering: optimizeLegibility;
-        -o-text-rendering: optimizeLegibility;
-        text-rendering: optimizeLegibility;
-    }
-
-#header {
-    padding-top: 15px;
-    border-radius: inherit;
-}
-
-    #header:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 15px;
-        z-index: 2;
-        border-bottom: 1px solid #6c615c;
-        background: #8d7d77;
-        background: -webkit-gradient(linear, left top, left bottom, from(rgba(132, 110, 100, 0.8)),to(rgba(101, 84, 76, 0.8)));
-        background: -webkit-linear-gradient(top, rgba(132, 110, 100, 0.8), rgba(101, 84, 76, 0.8));
-        background: linear-gradient(top, rgba(132, 110, 100, 0.8), rgba(101, 84, 76, 0.8));
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#9d8b83', EndColorStr='#847670');
-        border-top-left-radius: 1px;
-        border-top-right-radius: 1px;
-    }
-
-#new-todo,
-.edit {
-    position: relative;
-    margin: 0;
-    width: 100%;
-    font-size: 24px;
-    font-family: inherit;
-    line-height: 1.4em;
-    border: 0;
-    outline: none;
-    color: inherit;
-    padding: 6px;
-    border: 1px solid #999;
-    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
+/* Reset & Base Styles */
+* {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #fcfcfc 0%, #f8f9ff 50%, #fff5f8 100%);
+    min-height: 100vh;
+    font-family: 'Inter', 'SF Pro Display', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    -ms-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
-    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-#new-todo {
-    padding: 16px 16px 16px 60px;
-    border: none;
-    background: rgba(0, 0, 0, 0.02);
-    z-index: 2;
-    box-shadow: none;
+/* Main Title Container - WOW Header */
+.main-title-container {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    animation: titleEntrance 1s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-#main {
+@keyframes titleEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.main-title {
+    margin: 0;
+    font-size: 56px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #ff6b6b 75%, #4ecdc4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -2px;
+    text-shadow: none;
     position: relative;
     z-index: 2;
-    border-top: 1px dotted #adadad;
+    animation: colorShift 3s ease-in-out infinite alternate;
 }
 
-label[for='toggle-all'] {
-    display: none;
+@keyframes colorShift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(10deg); }
 }
 
-#toggle-all {
+.title-decoration {
     position: absolute;
-    top: -42px;
-    left: -4px;
-    width: 40px;
-    text-align: center;
-    /* Mobile Safari */
-    border: none;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #ff6b6b, #4ecdc4);
+    border-radius: 2px;
+    animation: decorationGlow 2s ease-in-out infinite alternate;
 }
 
-    #toggle-all:before {
-        content: '»';
-        font-size: 28px;
-        color: #d9d9d9;
-        padding: 0 25px 7px;
+@keyframes decorationGlow {
+    0% { 
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        transform: translateX(-50%) scaleX(0.8);
     }
-
-    #toggle-all:checked:before {
-        color: #737373;
+    100% { 
+        box-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+        transform: translateX(-50%) scaleX(1.2);
     }
-
-#todo-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
 }
 
-    #todo-list li {
-        position: relative;
-        font-size: 24px;
-        border-bottom: 1px dotted #ccc;
-    }
-
-        #todo-list li:last-child {
-            border-bottom: none;
-        }
-
-        #todo-list li.editing {
-            border-bottom: none;
-            padding: 0;
-        }
-
-            #todo-list li.editing .edit {
-                display: block;
-                width: 506px;
-                padding: 13px 17px 12px 17px;
-                margin: 0 0 0 43px;
-            }
-
-            #todo-list li.editing .view {
-                display: none;
-            }
-
-        #todo-list li .toggle {
-            text-align: center;
-            width: 40px;
-            /* auto, since non-WebKit browsers doesn't support input styling */
-            height: auto;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            margin: auto 0;
-            /* Mobile Safari */
-            border: none;
-            -webkit-appearance: none;
-            -ms-appearance: none;
-            -o-appearance: none;
-            appearance: none;
-        }
-
-            #todo-list li .toggle:after {
-                content: '✔';
-                /* 40 + a couple of pixels visual adjustment */
-                line-height: 43px;
-                font-size: 20px;
-                color: #d9d9d9;
-                text-shadow: 0 -1px 0 #bfbfbf;
-            }
-
-            #todo-list li .toggle:checked:after {
-                color: #85ada7;
-                text-shadow: 0 1px 0 #669991;
-                bottom: 1px;
-                position: relative;
-            }
-
-        #todo-list li label {
-            white-space: pre;
-            word-break: break-word;
-            padding: 15px 60px 15px 15px;
-            margin-left: 45px;
-            display: block;
-            line-height: 1.2;
-            -webkit-transition: color 0.4s;
-            transition: color 0.4s;
-        }
-
-        #todo-list li.completed label {
-            color: #a9a9a9;
-            text-decoration: line-through;
-        }
-
-        #todo-list li .destroy {
-            display: none;
-            position: absolute;
-            top: 0;
-            right: 10px;
-            bottom: 0;
-            width: 40px;
-            height: 40px;
-            margin: auto 0;
-            font-size: 22px;
-            color: #a88a8a;
-            -webkit-transition: all 0.2s;
-            transition: all 0.2s;
-        }
-
-            #todo-list li .destroy:hover {
-                text-shadow: 0 0 1px #000, 0 0 10px rgba(199, 107, 107, 0.8);
-                -webkit-transform: scale(1.3);
-                -ms-transform: scale(1.3);
-                transform: scale(1.3);
-            }
-
-            #todo-list li .destroy:after {
-                content: '✖';
-            }
-
-        #todo-list li:hover .destroy {
-            display: block;
-        }
-
-        #todo-list li .edit {
-            display: none;
-        }
-
-        #todo-list li.editing:last-child {
-            margin-bottom: -1px;
-        }
-
-#footer {
-    color: #777;
-    padding: 0 15px;
-    position: absolute;
-    right: 0;
-    bottom: -31px;
-    left: 0;
-    height: 20px;
-    z-index: 1;
-    text-align: center;
+/* App Wrapper - Wide & Spacious */
+.app-wrapper {
+    width: 85%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding-top: 60px;
 }
 
-    #footer:before {
-        content: '';
-        position: absolute;
-        right: 0;
-        bottom: 31px;
-        left: 0;
-        height: 50px;
-        z-index: -1;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 6px 0 -3px rgba(255, 255, 255, 0.8), 0 7px 1px -3px rgba(0, 0, 0, 0.3), 0 43px 0 -6px rgba(255, 255, 255, 0.8), 0 44px 2px -6px rgba(0, 0, 0, 0.2);
-    }
-
-#todo-count {
-    float: left;
-    text-align: left;
-}
-
-#filters {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    position: absolute;
-    right: 0;
-    left: 0;
-}
-
-    #filters li {
-        display: inline;
-    }
-
-        #filters li a {
-            color: #83756f;
-            margin: 2px;
-            text-decoration: none;
-        }
-
-            #filters li a.selected {
-                font-weight: bold;
-            }
-
-#clear-completed {
-    float: right;
+/* App Container - Professional Layout */
+.app-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
-    line-height: 20px;
-    text-decoration: none;
-    background: rgba(0, 0, 0, 0.1);
-    font-size: 11px;
-    padding: 0 10px;
-    border-radius: 3px;
-    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-    #clear-completed:hover {
-        background: rgba(0, 0, 0, 0.15);
-        box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.3);
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-#info {
-    margin: 65px auto 0;
-    color: #a6a6a6;
-    font-size: 12px;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+/* Header Section - WOW Gradient with Multiple Colors */
+.app-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #ff6b6b 100%);
+    padding: 32px 40px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-    #info a {
-        color: inherit;
-    }
-
-/*
-	Hack to remove background from Mobile Safari.
-	Can't use it globally since it destroys checkboxes in Firefox and Opera
-*/
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    #toggle-all,
-    #todo-list li .toggle {
-        background: none;
-    }
-
-    #todo-list li .toggle {
-        height: 40px;
-    }
-
-    #toggle-all {
-        top: -56px;
-        left: -15px;
-        width: 65px;
-        height: 41px;
-        -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-        -webkit-appearance: none;
-        appearance: none;
-    }
+.app-header::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
-.hidden {
-    display: none;
+.app-header::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -5%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
-hr {
-    margin: 20px 0;
-    border: 0;
-    border-top: 1px dashed #C5C5C5;
-    border-bottom: 1px dashed #F7F7F7;
+.app-title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-.learn a {
-    font-weight: normal;
-    text-decoration: none;
-    color: #b83f45;
+/* Main Content */
+.app-main {
+    padding: 32px;
 }
 
-    .learn a:hover {
-        text-decoration: underline;
-        color: #787e7e;
-    }
-
-.learn h3,
-.learn h4,
-.learn h5 {
-    margin: 10px 0;
-    font-weight: 500;
-    line-height: 1.2;
-    color: #000;
+/* Input Section - Large Elegant Bar */
+.input-section {
+    margin-bottom: 32px;
 }
 
-.learn h3 {
-    font-size: 24px;
-}
-
-.learn h4 {
+.premium-input {
+    width: 100%;
+    padding: 20px 24px;
     font-size: 18px;
+    font-family: 'Inter', 'SF Pro Display', 'Segoe UI', sans-serif;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    background: #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #1a1a1a;
+    font-weight: 500;
 }
 
-.learn h5 {
-    margin-bottom: 0;
-    font-size: 14px;
+.premium-input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow: 
+        0 0 0 4px rgba(102, 126, 234, 0.1),
+        0 4px 20px rgba(102, 126, 234, 0.12);
+    transform: translateY(-1px);
 }
 
-.learn ul {
-    padding: 0;
-    margin: 0 0 30px 25px;
+.premium-input::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
 }
 
-.learn li {
-    line-height: 20px;
+/* Tasks Container */
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: fadeIn 0.4s ease-out 0.1s both;
 }
 
-.learn p {
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1.3;
-    margin-top: 0;
-    margin-bottom: 0;
+/* Tasks Header - Beautiful Title */
+.tasks-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid transparent;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #ff6b6b, #4ecdc4) bottom/100% 2px no-repeat;
+    background-clip: padding-box;
+    border-image: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #ff6b6b, #4ecdc4) 1;
 }
 
-.quote {
-    border: none;
-    margin: 20px 0 60px 0;
-}
-
-    .quote p {
-        font-style: italic;
-    }
-
-        .quote p:before {
-            content: '“';
-            font-size: 50px;
-            opacity: .15;
-            position: absolute;
-            top: -20px;
-            left: 3px;
-        }
-
-        .quote p:after {
-            content: '”';
-            font-size: 50px;
-            opacity: .15;
-            position: absolute;
-            bottom: -42px;
-            right: 3px;
-        }
-
-    .quote footer {
-        position: absolute;
-        bottom: -40px;
-        right: 0;
-    }
-
-        .quote footer img {
-            border-radius: 3px;
-        }
-
-        .quote footer a {
-            margin-left: 5px;
-            vertical-align: middle;
-        }
-
-.speech-bubble {
-    position: relative;
-    padding: 10px;
-    background: rgba(0, 0, 0, .04);
-    border-radius: 5px;
-}
-
-    .speech-bubble:after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        right: 30px;
-        border: 13px solid transparent;
-        border-top-color: rgba(0, 0, 0, .04);
-    }
-
-.learn-bar > .learn {
-    position: absolute;
-    width: 272px;
-    top: 8px;
-    left: -300px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, .6);
-    -webkit-transition-property: left;
-    transition-property: left;
-    -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
-}
-
-@media (min-width: 899px) {
-    .learn-bar {
-        width: auto;
-        margin: 0 0 0 300px;
-    }
-
-        .learn-bar > .learn {
-            left: 8px;
-        }
-
-        .learn-bar #todoapp {
-            width: 550px;
-            margin: 130px auto 40px auto;
-        }
-}
-
-
-html,
-body {
+.tasks-title {
     margin: 0;
-    padding: 0;
-}
-
-button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    font-size: 100%;
-    vertical-align: baseline;
-    font-family: inherit;
-    font-weight: inherit;
-    color: inherit;
-    -webkit-appearance: none;
-    appearance: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.4em;
-    background: #f5f5f5;
-    color: #4d4d4d;
-    min-width: 230px;
-    max-width: 550px;
-    margin: 0 auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 300;
-}
-
-:focus {
-    outline: 0;
-}
-
-.hidden {
-    display: none;
-}
-
-.todoapp {
-    background: #fff;
-    margin: 130px 0 40px 0;
-    position: relative;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
-}
-
-    .todoapp input::-webkit-input-placeholder {
-        font-style: italic;
-        font-weight: 300;
-        color: #e6e6e6;
-    }
-
-    .todoapp input::-moz-placeholder {
-        font-style: italic;
-        font-weight: 300;
-        color: #e6e6e6;
-    }
-
-    .todoapp input::input-placeholder {
-        font-style: italic;
-        font-weight: 300;
-        color: #e6e6e6;
-    }
-
-    .todoapp h1 {
-        position: absolute;
-        top: -155px;
-        width: 100%;
-        font-size: 100px;
-        font-weight: 100;
-        text-align: center;
-        color: #194350;
-        font-family: 'Poppins', sans-serif;
-        -webkit-text-rendering: optimizeLegibility;
-        -moz-text-rendering: optimizeLegibility;
-        text-rendering: optimizeLegibility;
-    }
-
-.new-todo,
-.edit {
-    position: relative;
-    margin: 0;
-    width: 100%;
     font-size: 24px;
-    font-family: inherit;
-    font-weight: inherit;
-    line-height: 1.4em;
-    border: 0;
-    color: inherit;
-    padding: 6px;
-    border: 1px solid #999;
-    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #ff6b6b 75%, #4ecdc4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+    text-shadow: none;
 }
 
-.new-todo {
-    padding: 16px 16px 16px 60px;
-    border: none;
-    background: rgba(0, 0, 0, 0.003);
-    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-.main {
+/* No Tasks State */
+.no-tasks {
+    text-align: center;
+    padding: 80px 40px;
+    color: #9ca3af;
+}
+
+.no-tasks-icon {
+    font-size: 56px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.no-tasks p {
+    margin: 0;
+    font-size: 18px;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+/* Task Card - Wide & Sleek with WOW Effects */
+.task-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideInCard 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     position: relative;
-    z-index: 2;
-    border-top: 1px solid #e6e6e6;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
 }
 
-.toggle-all {
-    text-align: center;
-    border: none; /* Mobile Safari */
-    opacity: 0;
+.task-card::before {
+    content: '';
     position: absolute;
-}
-
-    .toggle-all + label {
-        width: 60px;
-        height: 34px;
-        font-size: 0;
-        position: absolute;
-        top: -52px;
-        left: -13px;
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
-    }
-
-        .toggle-all + label:before {
-            content: '❯';
-            font-size: 22px;
-            color: #e6e6e6;
-            padding: 10px 27px 10px 27px;
-        }
-
-    .toggle-all:checked + label:before {
-        color: #737373;
-    }
-
-.todo-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-    .todo-list li {
-        position: relative;
-        font-size: 24px;
-        border-bottom: 1px solid #ededed;
-    }
-
-        .todo-list li:last-child {
-            border-bottom: none;
-        }
-
-        .todo-list li.editing {
-            border-bottom: none;
-            padding: 0;
-        }
-
-            .todo-list li.editing .edit {
-                display: block;
-                width: 506px;
-                padding: 12px 16px;
-                margin: 0 0 0 43px;
-            }
-
-            .todo-list li.editing .view {
-                display: none;
-            }
-
-        .todo-list li .toggle {
-            text-align: center;
-            width: 40px;
-            /* auto, since non-WebKit browsers doesn't support input styling */
-            height: auto;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            margin: auto 0;
-            border: none; /* Mobile Safari */
-            -webkit-appearance: none;
-            appearance: none;
-        }
-
-        .todo-list li .toggle {
-            opacity: 0;
-        }
-
-            .todo-list li .toggle + label {
-                /*
-		Firefox requires `#` to be escaped - https://bugzilla.mozilla.org/show_bug.cgi?id=922433
-		IE and Edge requires *everything* to be escaped to render, so we do that instead of just the `#` - https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/7157459/
-	*/
-                background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
-                background-repeat: no-repeat;
-                background-position: center left;
-            }
-
-            .todo-list li .toggle:checked + label {
-                background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
-            }
-
-        .todo-list li label {
-            word-break: break-all;
-            padding: 15px 15px 15px 60px;
-            display: block;
-            line-height: 1.2;
-            transition: color 0.4s;
-        }
-
-        .todo-list li.completed label {
-            color: #d9d9d9;
-            text-decoration: line-through;
-        }
-
-        .todo-list li .destroy {
-            display: none;
-            position: absolute;
-            top: 0;
-            right: 10px;
-            bottom: 0;
-            width: 40px;
-            height: 40px;
-            margin: auto 0;
-            font-size: 30px;
-            color: #af5b5e;
-            margin-bottom: 11px;
-            transition: color 0.2s ease-out;
-        }
-
-            .todo-list li .destroy:hover {
-                color: #af5b5e;
-            }
-
-            .todo-list li .destroy:after {
-                content: '×';
-            }
-
-        .todo-list li:hover .destroy {
-            display: block;
-        }
-
-        .todo-list li .edit {
-            display: none;
-        }
-
-        .todo-list li.editing:last-child {
-            margin-bottom: -1px;
-        }
-
-.footer {
-    color: #777;
-    padding: 10px 15px;
-    height: 20px;
-    text-align: center;
-    border-top: 1px solid #e6e6e6;
-}
-
-    .footer:before {
-        content: '';
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 50px;
-        overflow: hidden;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
-    }
-
-.todo-count {
-    float: left;
-    text-align: left;
-}
-
-    .todo-count strong {
-        font-weight: 300;
-    }
-
-.filters {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    position: absolute;
-    right: 0;
     left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #667eea, #764ba2, #f093fb, #ff6b6b);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-    .filters li {
-        display: inline;
+@keyframes slideInCard {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
-        .filters li a {
-            color: inherit;
-            margin: 3px;
-            padding: 3px 7px;
-            text-decoration: none;
-            border: 1px solid transparent;
-            border-radius: 3px;
-        }
+.task-card:hover {
+    border-color: rgba(255, 107, 107, 0.3);
+    background: linear-gradient(135deg, #ffffff 0%, #fff5f8 100%);
+    box-shadow: 
+        0 4px 25px rgba(255, 107, 107, 0.1),
+        0 8px 30px rgba(102, 126, 234, 0.08);
+    transform: translateY(-2px) scale(1.02);
+}
 
-            .filters li a:hover {
-                border-color: rgba(175, 47, 47, 0.1);
-            }
+.task-card:hover::before {
+    opacity: 1;
+}
 
-            .filters li a.selected {
-                border-color: rgba(175, 47, 47, 0.2);
-            }
+.task-card.completed {
+    opacity: 0.6;
+    background: #fafafa;
+    border-color: #f3f4f6;
+}
 
-.clear-completed,
-html .clear-completed:active {
-    float: right;
-    position: relative;
-    line-height: 20px;
-    text-decoration: none;
+.task-card.completed:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Task Content */
+.task-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 20px;
+}
+
+/* Checkbox Button */
+.checkbox-button {
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: none;
+    padding: 0;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    border-radius: 50%;
 }
 
-    .clear-completed:hover {
-        text-decoration: underline;
-    }
-
-.info {
-    margin: 65px auto 0;
-    color: #bfbfbf;
-    font-size: 10px;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    text-align: center;
+.checkbox-button:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(255, 107, 107, 0.08));
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
 }
 
-    .info p {
-        line-height: 1;
+.icon-unchecked {
+    font-size: 20px;
+    color: #d1d5db;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-unchecked:hover {
+    color: #ff6b6b;
+    filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.4));
+}
+
+.icon-checked {
+    font-size: 20px;
+    background: linear-gradient(135deg, #10b981, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 8px rgba(78, 205, 196, 0.4));
+}
+
+/* Task Text - Bold & Professional */
+.task-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+}
+
+.task-card.completed .task-text {
+    color: #6b7280;
+    text-decoration: line-through;
+    text-decoration-color: #d1d5db;
+    text-decoration-thickness: 2px;
+    font-weight: 500;
+}
+
+/* Delete Button - Minimal Red on Hover */
+.delete-button {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    color: #d1d5db;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.task-card:hover .delete-button {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.delete-button:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    transform: scale(1.1);
+}
+
+.delete-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .app-wrapper {
+        width: 95%;
+        padding-top: 40px;
     }
-
-    .info a {
-        color: inherit;
-        text-decoration: none;
-        font-weight: 400;
+    
+    .app-header {
+        padding: 24px 28px;
     }
-
-        .info a:hover {
-            text-decoration: underline;
-        }
-
-/*
-	Hack to remove background from Mobile Safari.
-	Can't use it globally since it destroys checkboxes in Firefox
-*/
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    .toggle-all,
-    .todo-list li .toggle {
-        background: none;
+    
+    .app-title {
+        font-size: 24px;
     }
-
-    .todo-list li .toggle {
-        height: 40px;
+    
+    .app-main {
+        padding: 28px 24px;
+    }
+    
+    .premium-input {
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+    
+    .task-card {
+        padding: 20px 24px;
+    }
+    
+    .task-content {
+        gap: 16px;
+    }
+    
+    .task-text {
+        font-size: 15px;
     }
 }
 
-@media (max-width: 430px) {
-    .footer {
-        height: 50px;
+@media (max-width: 480px) {
+    .app-wrapper {
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
-
-    .filters {
-        bottom: 10px;
+    
+    .app-container {
+        border-radius: 8px;
+    }
+    
+    .app-header {
+        padding: 20px 24px;
+    }
+    
+    .app-title {
+        font-size: 22px;
+    }
+    
+    .app-main {
+        padding: 24px 20px;
+    }
+    
+    .premium-input {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+    
+    .task-card {
+        padding: 16px 20px;
+    }
+    
+    .task-content {
+        gap: 14px;
+    }
+    
+    .task-text {
+        font-size: 14px;
     }
 }
